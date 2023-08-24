@@ -24,7 +24,8 @@ module Montrose
         Rule::DayOfMonth,
         Rule::DayOfYear,
         Rule::WeekOfYear,
-        Rule::MonthOfYear
+        Rule::MonthOfYear,
+        Rule::Only
       ].map { |r| r.from_options(opts) }.compact
     end
 

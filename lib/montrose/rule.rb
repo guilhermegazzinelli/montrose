@@ -20,6 +20,7 @@ module Montrose
     autoload :Total, "montrose/rule/total"
     autoload :Until, "montrose/rule/until"
     autoload :WeekOfYear, "montrose/rule/week_of_year"
+    autoload :Only, "montrose/rule/only"
 
     def self.included(base)
       base.extend ClassMethods
