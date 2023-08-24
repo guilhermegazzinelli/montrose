@@ -32,6 +32,7 @@ module Montrose
   autoload :Utils, "montrose/utils"
   autoload :Week, "montrose/week"
   autoload :YearDay, "montrose/year_day"
+  autoload :Only, "montrose/rule/only"
 
   extend Chainable
 

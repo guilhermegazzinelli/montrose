@@ -102,6 +102,7 @@ module Montrose
     def_option :on
     def_option :except
     def_option :exclude_end
+    def_option :only
 
     def initialize(opts = {})
       defaults = {
@@ -246,6 +247,10 @@ module Montrose
       @except = map_arg(date) { |d| as_date(d) }
     end
 
+    def only=(dates)
+      @only = map_arg(dates) { |d| as_date(d) }
+    end
+
     def inspect
       "#<#{self.class} #{to_h.inspect}>"
     end
@@ -261,6 +266,7 @@ module Montrose
         time
       end
     end
+
 
     private
 
