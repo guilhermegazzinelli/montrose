@@ -7,15 +7,21 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.7.6)
+    activesupport (7.1.1)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     ast (2.4.2)
     base64 (0.1.1)
+    bigdecimal (3.1.4)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -23,6 +29,8 @@ GEM
       thor (>= 0.19.4, < 2.0)
       tins (~> 1.6)
     docile (1.4.0)
+    drb (2.1.1)
+      ruby2_keywords
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     json (2.6.3)
@@ -33,6 +41,7 @@ GEM
       rake (>= 0.9.2.2)
     method_source (1.0.0)
     minitest (5.20.0)
+    mutex_m (0.1.2)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -60,6 +69,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -88,13 +98,12 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     yard (0.9.34)
-    zeitwerk (2.6.12)
 
 PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
-  activesupport (~> 6.1)
+  activesupport (~> 7.1)
   coveralls
   m
   minitest
@@ -105,4 +114,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   2.4.10
+   2.4.12

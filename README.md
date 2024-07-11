@@ -1,7 +1,7 @@
 # Montrose
 
-[![Build Status](https://travis-ci.org/rossta/montrose.svg?branch=master)](https://travis-ci.org/rossta/montrose)
-[![Code Climate](https://codeclimate.com/github/rossta/montrose/badges/gpa.svg)](https://codeclimate.com/github/rossta/montrose)
+[![Build Status](https://dl.circleci.com/status-badge/img/gh/rossta/montrose/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/rossta/montrose/tree/main)
+[![Code Climate](https://api.codeclimate.com/v1/badges/305689119fb4ddcbaec1/maintainability)](https://codeclimate.com/github/rossta/montrose/maintainability)
 [![Coverage Status](https://coveralls.io/repos/rossta/montrose/badge.svg?branch=master&service=github)](https://coveralls.io/github/rossta/montrose?branch=master)
 
 Montrose is an easy-to-use library for defining recurring events in Ruby. It uses a simple chaining system for building enumerable recurrences, inspired heavily by the design principles of [HTTP.rb](https://github.com/httprb/http) and rule definitions available in [Recurrence](https://github.com/fnando/recurrence).
@@ -375,6 +375,26 @@ r.events.take(10).each { |date| puts date.to_s }
 r.events.lazy.select { |time| time > 1.month.from_now }.take(3).each { |date| puts date.to_s }
 ```
 
+Montrose relies on `ActiveSupport` for `DateTime`, `Date`, and `Time` calculations. As such, configuring ActiveSupport settings should work for Montrose recurrences.
+
+For example, your application can configure the `Date` "beginning of the week" ([docs](https://www.rubydoc.info/docs/rails/Date.beginning_of_week)):
+
+```ruby
+Date.beginning_of_the_week = :sunday
+# OR
+Date.beginning_of_the_week = :monday
+```
+
+Similarly in Rails ([docs](https://guides.rubyonrails.org/configuring.html#config-beginning-of-week)):
+
+```ruby
+config.beginning_of_week = :sunday
+# OR
+config.beginning_of_week = :monday
+```
+
+Changing these settings may affect the behavior of Montrose weekly recurrences.
+
 ### Combining recurrences
 
 It may be necessary to combine several recurrence rules into a single
@@ -447,7 +467,27 @@ Check out following related projects, all of which have provided inspiration for
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/rake` to run the tests.
+After checking out the repo, run `bin/setup` to install dependencies. `bin/setup` will install gems for each gemfile in `gemfiles/` against the current Ruby version.
+
+To run tests against all gemfiles for current Ruby:
+
+```
+bin/spec
+```
+
+To update installed gems for gemfiles:
+
+```
+bin/update
+```
+
+To fix lint errors:
+
+```
+bin/standardrb --fix
+```
+
+When adding a new gemfile to `gemfiles/`, run `bin/setup` and commit the generated lock file.
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 

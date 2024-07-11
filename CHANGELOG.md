@@ -1,3 +1,14 @@
+### 0.16.0 - (2023-10-11)
+
+- enhancements
+  - Add support for Rails 7.1 (by @bugthing)
+  - Add support for Ruby 3.2
+
+### 0.15.0 - (2023-08-27)
+
+- breaking changes
+  - Drop support for Ruby 2.6
+
 ### 0.14.0 - (2023-08-23)
 
 - enhancements
